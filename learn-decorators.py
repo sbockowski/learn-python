@@ -29,6 +29,7 @@
 
 def debug(func):
     def wrapper():
+        func()
         print(f"Calling function name: {func.__name__}")
     return wrapper
 
@@ -36,9 +37,10 @@ def debug(func):
 def scare():
     print("Boo!")
 scare()
-
+ 
 def babbys_first_deco(func):
     return print
+
 @babbys_first_deco 
 def do_stuff(a, b, c):
     return a, b, c
@@ -46,3 +48,22 @@ def do_stuff(a, b, c):
 # decorated_function = babbys_first_deco(do_stuff)
 # decorated_function("foo", "bar", "baz")
 do_stuff("foo", "bar", "baz")
+
+print(do_stuff)
+
+class MyDecorator:
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print("before")
+        result = self.func(*args, **kwargs)
+        print("after")
+        return result
+
+
+@MyDecorator
+def greet(name):
+    print(f"Hello {name}")
+
+greet("Szymon")
