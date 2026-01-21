@@ -1,6 +1,12 @@
 import functions
-import FreeSimpleGUI
+import FreeSimpleGUI as sg
 
+label = sg.Text("Type in a to-do")
+input_box = sg.InputText()
+add_button = sg.Button("Add")
+complete_button = sg.Button("Complete")
 
-FreeSimpleGUI.Window("Okno")
+window = sg.Window("My To-Do App", layout=[[label], [input_box, add_button]])
 
+window.read()
+window.close()
