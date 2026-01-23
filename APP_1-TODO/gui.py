@@ -4,8 +4,8 @@ import os
 import FreeSimpleGUI as sg
 import functions
 
-if not os.path.exists("todos.txt"):
-    with open("todos.txt", "w") as file:
+if not os.path.exists("todos_item.txt"):
+    with open("todos_item.txt", "w") as file:
         pass
 
 sg.theme("Black")
