@@ -8,7 +8,7 @@ def home():
     return render_template("home.html")
 
 @app.route("/api/v1/<station>/<date>")
-def temperature(station, date):
+def about(station, date):
     # df = pandas.read_csv("")
     # temperature = df.station(date)
     temperature = 23
@@ -19,4 +19,4 @@ def temperature(station, date):
             }
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
